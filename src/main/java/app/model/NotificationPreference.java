@@ -29,7 +29,6 @@ public class NotificationPreference {
 
     private boolean isEnabled;
 
-    @Column(nullable = false)
     private String contactInfo;
 
     @Column(nullable = false)

@@ -1,6 +1,5 @@
 package app.web.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -17,6 +16,5 @@ public class UpsertNotificationPreference {
     @NotNull
     private NotificationTypeRequest notificationType;
 
-    @NotBlank
     private String contactInfo;
 }

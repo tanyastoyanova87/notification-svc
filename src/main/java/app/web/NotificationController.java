@@ -49,6 +49,17 @@ public class NotificationController {
                 .body(notificationPreferenceResponse);
     }
 
+    @PutMapping("/preferences")
+    public ResponseEntity<NotificationPreferenceResponse> changeNotificationPreference(@RequestParam(name = "userId") UUID userId, @RequestParam(name = "enabled") boolean enabled) {
+
+        NotificationPreference notificationPreference = notificationService.changeNotificationPreference(userId, enabled);
+        NotificationPreferenceResponse notificationPreferenceResponse = DtoMapper.fromNotificationPreference(notificationPreference);
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(notificationPreferenceResponse);
+    }
+
     @PostMapping
     public ResponseEntity<NotificationResponse> sendNotification(@RequestBody NotificationRequest notificationRequest) throws IllegalAccessException {
 

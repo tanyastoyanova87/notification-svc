@@ -100,4 +100,11 @@ public class NotificationService {
     public List<Notification> getNotificationHistory(UUID userId) {
        return notificationRepository.findAllByUserIdAndDeletedFalse(userId);
     }
+
+    public NotificationPreference changeNotificationPreference(UUID userId, boolean enabled) {
+
+        NotificationPreference notificationPreference = getPreferenceByUserId(userId);
+        notificationPreference.setEnabled(enabled);
+        return notificationPreferenceRepository.save(notificationPreference);
+    }
 }
